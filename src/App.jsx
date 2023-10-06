@@ -1,25 +1,26 @@
 import { useState } from 'react'
 import './App.css'
 import { TierList } from './TierList'
-import { getLevel } from './constants/getLevel'
+import { getLevel, tierListSize } from './constants/getLevel'
 
 function App() {
   const [newRestaurant, setNewRestaurant] = useState('')
   const [newScore, setNewScore] = useState('')
-  const [todos, setTodos] = useState([
-    [], // S
-    [], // F
-  ])
+  const [todos, setTodos] = useState([...Array(tierListSize)].map(e => Array()))
 
   function handleSubmit(e) {
     e.preventDefault()
 
     setTodos(prevTodo => {
       const board = [...prevTodo]
+      if (newRestaurant === '') {
+        return board
+      }
       const score = getLevel(newScore)
       board[score] = [...board[score], newRestaurant]
       return board
     })
+    console.log(todos)
   }
 
   return (
