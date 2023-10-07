@@ -5,7 +5,7 @@ import './index.css'
 export function TierList({ todoList }) {
   return (
     <div className='m-5'>
-      <h1 className='text-center'>Tier List</h1>
+      <h1 className='text-center m-3 text-3xl font-bold'>Tier List</h1>
       <div>
         {[...Array(tierListSize)].map((x, i) => {
           let curLevel = getLevel(i)
