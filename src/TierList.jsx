@@ -1,21 +1,36 @@
 import { getLevel, tierListSize } from './constants/getLevel'
-import { OneTier } from './OneTier'
-import './index.css'
+
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
 export function TierList({ todoList }) {
   return (
-    <div className='m-5'>
-      <h1 className='text-center m-3 text-3xl font-bold'>Tier List</h1>
-      <div>
+    <Table>
+      <TableHeader>
+        <TableRow></TableRow>
+      </TableHeader>
+      <TableBody>
         {[...Array(tierListSize)].map((x, i) => {
           let curLevel = getLevel(i)
           return (
-            <div key={i}>
-              <OneTier todoList={todoList} level={i}/>
-            </div>
+            <TableRow key={curLevel}>
+              <TableCell className="font-medium">{curLevel}</TableCell>
+              {todoList[i].map(todo => {
+                return (
+                  <TableCell className="font-medium">{todo}</TableCell>
+                );
+              })}
+            </TableRow>
           )
         })}
-      </div>
-    </div>
-  );
+      </TableBody>
+    </Table>
+  )
 }

@@ -23,9 +23,9 @@ function App() {
 
   return (
     <div className='fixed h-full w-full bg-slate-800 text-white'>
-      <p className='text-center p-5 text-5xl font-bold'> Restaurant Tier List </p>
+      <p className='text-center pt-5 text-5xl font-bold'> Restaurant Tier List </p>
       <form className='new-item-form'>
-        <div className='text-center'>
+        <div className='text-center p-5'>
           <AddButton addRating={addRating}/>
         </div>
       </form>
