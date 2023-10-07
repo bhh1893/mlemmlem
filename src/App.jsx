@@ -2,11 +2,16 @@ import { useState } from 'react'
 import { TierList } from './TierList'
 import { getLevel, tierListSize } from './constants/getLevel'
 import { AddButton } from './AddButton'
+import toast, { Toaster } from 'react-hot-toast';
 
 import './index.css'
 
 function App() {
   const [todos, setTodos] = useState([...Array(tierListSize)].map(e => Array()))
+  const notify = () => toast('Rating Added!', {
+    duration: 750,
+    position: 'bottom-right',
+  });
 
   function addRating(restaurant, score) {
     setTodos(prevTodo => {
@@ -26,7 +31,8 @@ function App() {
       <p className='text-center pt-5 text-5xl font-bold'> Restaurant Tier List </p>
       <form className='new-item-form'>
         <div className='text-center p-5'>
-          <AddButton addRating={addRating}/>
+          <AddButton addRating={addRating} toaster={notify} />
+          <Toaster />
         </div>
       </form>
       <TierList todoList={todos} />

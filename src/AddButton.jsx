@@ -12,7 +12,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export function AddButton({ addRating }) {
+
+export function AddButton({ addRating , toaster }) {
   const [newRestaurant, setNewRestaurant] = useState('Milky Treats')
   const [newScore, setNewScore] = useState('S')
   const [open, setOpen] = useState(false);
@@ -21,6 +22,7 @@ export function AddButton({ addRating }) {
     e.preventDefault()
     addRating(newRestaurant, newScore)
     setOpen(!open)
+    toaster()
   }
 
   return (
@@ -28,11 +30,11 @@ export function AddButton({ addRating }) {
       <DialogTrigger asChild>
         <Button variant="default">Add Rating</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] text-white">
+      <DialogContent className="max-w-[500px] text-white">
         <DialogHeader>
           <DialogTitle>Add Rating</DialogTitle>
           <DialogDescription>
-            Type in a restaurant name and give it a score of:  S, A, B, C, or F 
+            Type in a restaurant name and give it a score of:  S, A, B, C, or F
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
