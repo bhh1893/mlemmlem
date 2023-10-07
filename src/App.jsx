@@ -3,6 +3,7 @@ import { TierList } from './TierList'
 import { getLevel, tierListSize } from './constants/getLevel'
 import { AddButton } from './AddButton'
 import toast, { Toaster } from 'react-hot-toast';
+import { TierList2 } from './TierList2';
 
 import './index.css'
 
@@ -35,7 +36,8 @@ function App() {
           <Toaster />
         </div>
       </form>
-      <TierList todoList={todos} />
+      {/* <TierList todoList={todos} /> */}
+      <TierList2 todoList={todos} />
     </div>
   )
 }

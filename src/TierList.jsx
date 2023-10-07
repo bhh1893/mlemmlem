@@ -21,10 +21,14 @@ export function TierList({ todoList }) {
           let curLevel = getLevel(i)
           return (
             <TableRow key={curLevel}>
-              <TableCell className="font-medium">{curLevel}</TableCell>
+              <TableCell>
+                <div className='w-24 text-center p-6 border-2 border-indigo-500'>
+                  {curLevel}
+                </div>
+                </TableCell>
               {todoList[i].map(todo => {
                 return (
-                  <TableCell className="font-medium">{todo}</TableCell>
+                  <TableCell className="border-2 font-medium">{todo}</TableCell>
                 );
               })}
             </TableRow>
