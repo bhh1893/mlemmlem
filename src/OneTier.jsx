@@ -1,18 +1,29 @@
 import { getLevel } from './constants/getLevel'
+import './index.css'
 
 export function OneTier({ todoList, level }) {
   return (
     <>
-      <h3 className="header">Tier {getLevel(level)}</h3>
-      {todoList[level].map(todo => {
-        return (
-          <li key={todo}>
-            <label>
-              {todo}
-            </label>
-          </li>
-        );
-      })}
+      <table className="table-fixed flex">
+        <thead className='w-32 outline-dashed place-self-center'>
+          <tr>
+            <th className='p-5 outline-none'>{getLevel(level)}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {todoList[level].map(todo => {
+              return (
+                <td className='p-5 outline-double'>
+                  <label>
+                    {todo}
+                  </label>
+                </td>
+              );
+            })}
+          </tr>
+        </tbody>
+      </table>
     </>
   )
 }
