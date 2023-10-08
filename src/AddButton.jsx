@@ -30,7 +30,7 @@ export function AddButton({ addRating , toaster }) {
       <DialogTrigger asChild>
         <Button variant="default">Add Rating</Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[500px] text-white">
+      <DialogContent className="max-w-[500px] bg-black text-white">
         <DialogHeader>
           <DialogTitle>Add Rating</DialogTitle>
           <DialogDescription>
