@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label"
 import { DeleteButton } from './Buttons/DeleteButton'
 import { EditButton } from './Buttons/EditButton'
 
-export function SingleObj({ name, deleteRating }) {
+export function Card({ title, deleteRating }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,10 +22,10 @@ export function SingleObj({ name, deleteRating }) {
         <Button 
           variant='default'
           size='lg'
-          className='h-4/6 my-auto mx-3 border-solid text-center bg-blue-500 border-2
+          className='h-4/6 w-40 my-auto mx-3 border-solid text-center bg-blue-500 border-2
                    border-gray-400 text-gray-200'
         >
-          {name}
+          {title}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[500px] bg-black text-white">
@@ -38,7 +38,7 @@ export function SingleObj({ name, deleteRating }) {
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
-              {name}
+              {title}
             </Label>
           </div>
         </div>
@@ -46,13 +46,13 @@ export function SingleObj({ name, deleteRating }) {
           <EditButton
             parentOpen={open} 
             setParentOpen={setOpen} 
-            restaurant={name}
+            restaurant={title}
           />
           <DeleteButton 
             parentOpen={open} 
             setParentOpen={setOpen} 
             deleteRating={deleteRating}
-            restaurant={name}
+            restaurant={title}
           />
         </DialogFooter>
       </DialogContent>

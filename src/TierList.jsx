@@ -1,7 +1,7 @@
-import { SingleObj } from './SingleObj';
+import { Card } from './Card';
 import { getLevel, tierListSize, getColor } from './constants/getLevel'
 
-export function TierList({ todoList, deleteRating }) {
+export function TierList({ restaurants, deleteRating }) {
   function handleScroll(e) {
     // here im handling the horizontal scroll inline, without the use of hooks
     const strength = Math.abs(e.deltaY);
@@ -46,9 +46,10 @@ export function TierList({ todoList, deleteRating }) {
                          overflow-x-auto scroll-smooth no-scrollbar snap-always snap-start'
               onWheel={handleScroll}
             >
-              {todoList[i].map(todo => {
+              {restaurants[curLevel].map(r => {
+                let title = r['title']
                 return (
-                  <SingleObj name={todo} deleteRating={deleteRating} key={todo}/>
+                  <Card title={title} deleteRating={deleteRating} key={title}/>
                 );
               })}
             </div>

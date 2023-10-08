@@ -26,7 +26,7 @@ export function DeleteButton({ parentOpen, setParentOpen, deleteRating, restaura
     deleteRating(restaurant)
     setParentOpen(!parentOpen)
     toast({
-      title: 'Success!',
+      title: 'Rating Deleted.',
       description: errMessage,
       className: 'bg-black text-white'
     })

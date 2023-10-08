@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioButtons } from './RadioButtons'
 
-export function AddButton({ addRating , toaster }) {
+export function AddButton({ addRating }) {
   const [newRestaurant, setNewRestaurant] = useState('Milky Treats')
   const [newScore, setNewScore] = useState('S')
   const [open, setOpen] = useState(false);
