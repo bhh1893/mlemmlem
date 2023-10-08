@@ -11,8 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
 
-
-export function DelButton({ parentOpen, setParentOpen }) {
+export function EditButton({ parentOpen, setParentOpen, restaurant }) {
   const [open, setOpen] = useState(false);
 
   function backOne() {
@@ -20,7 +19,10 @@ export function DelButton({ parentOpen, setParentOpen }) {
   }
 
   function handleDelete() {
-    console.log('implement delete')
+    console.log('implement edit')
+    const editMessage = "Updated " + restaurant + "!"
+    //TODO: Update to new toast
+    //notifyUpdate(editMessage)
     setParentOpen(!parentOpen)
   }
 
@@ -28,12 +30,18 @@ export function DelButton({ parentOpen, setParentOpen }) {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>
-          Delete
+          Edit
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-[500px] bg-black text-white">
         <DialogHeader>
-          <DialogTitle>Are you sure you want to remove {name}?</DialogTitle>
+          <DialogTitle>Edit Restaurant</DialogTitle>
+          <DialogDescription>
+            Update rating or add another food item.
+          </DialogDescription>
+          <DialogDescription>
+            Foods:
+          </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
@@ -43,8 +51,8 @@ export function DelButton({ parentOpen, setParentOpen }) {
           </div>
         </div>
         <DialogFooter>
-          <Button onClick={handleDelete}> Yes </Button>
-          <Button onClick={backOne}> No </Button>
+          <Button onClick={handleDelete}> Update </Button>
+          <Button onClick={backOne}> Cancel </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

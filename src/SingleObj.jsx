@@ -10,16 +10,11 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
-import { DelButton } from './DelButton'
+import { DeleteButton } from './Buttons/DeleteButton'
+import { EditButton } from './Buttons/EditButton'
 
-
-export function SingleObj({ name }) {
+export function SingleObj({ name, deleteRating }) {
   const [open, setOpen] = useState(false);
-  const [deleteDlg, setDeleteDlg] = useState(false);
-
-  function handleEdit() {
-    console.log('implement edit')
-  }
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -27,7 +22,8 @@ export function SingleObj({ name }) {
         <Button 
           variant='default'
           size='lg'
-          className='h-4/6 my-auto mx-3 border-solid text-center bg-blue-500 border-2 border-white'
+          className='h-4/6 my-auto mx-3 border-solid text-center bg-blue-500 border-2
+                   border-gray-400 text-gray-200'
         >
           {name}
         </Button>
@@ -47,11 +43,17 @@ export function SingleObj({ name }) {
           </div>
         </div>
         <DialogFooter>
-          <Button
-            onClick={handleEdit}
-          >
-            Edit</Button>
-          <DelButton parentOpen={open} setParentOpen={setOpen}/>
+          <EditButton
+            parentOpen={open} 
+            setParentOpen={setOpen} 
+            restaurant={name}
+          />
+          <DeleteButton 
+            parentOpen={open} 
+            setParentOpen={setOpen} 
+            deleteRating={deleteRating}
+            restaurant={name}
+          />
         </DialogFooter>
       </DialogContent>
     </Dialog>

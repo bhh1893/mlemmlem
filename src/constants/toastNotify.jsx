@@ -1,16 +1,21 @@
-import toast, { Toaster } from 'react-hot-toast';
-
-export const notifyAdded = () => toast('Rating Added!', {
-  duration: 750,
-  position: 'top-center',
-});
+export const notifyAdded = ''
 
 export const notifyDup = () => toast('Already have a restaurant with this name!', {
-  duration: 750,
+  duration: 1200,
   position: 'top-center',
 });
 
 export const notifyEmpty = () => toast('Must add a restaurant name!', {
-  duration: 750,
+  duration: 1200,
+  position: 'top-center',
+});
+
+export const notifyDelete = (errMessage) => toast(errMessage, {
+  duration: 1200,
+  position: 'top-center',
+});
+
+export const notifyUpdate = (editMessage) => toast(editMessage, {
+  duration: 1200,
   position: 'top-center',
 });

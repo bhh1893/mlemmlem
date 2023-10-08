@@ -1,3 +1,5 @@
+import '../index.css'
+
 export const getLevel = (id) => {
     const defaultKey = 'F'
     const rolesMap = {
@@ -16,3 +18,20 @@ export const getLevel = (id) => {
 }
 
 export const tierListSize = 5
+
+export const getColor = (id) => {
+    const defaultKey = 'text-white'
+    const rolesMap = {
+        'S': 'text-rose-400',
+        'A': 'text-orange-400',
+        'B': 'text-yellow-400', 
+        'C': 'text-green-400',
+        'F': 'text-purple-400', 
+        0: 'text-rose-400',
+        1: 'text-orange-400',
+        2: 'text-yellow-400', 
+        3: 'text-green-400',
+        4: 'text-purple-400', 
+    }
+    return rolesMap[id] ?? defaultKey
+}

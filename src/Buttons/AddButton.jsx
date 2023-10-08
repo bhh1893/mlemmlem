@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-
+import { RadioButtons } from './RadioButtons'
 
 export function AddButton({ addRating , toaster }) {
   const [newRestaurant, setNewRestaurant] = useState('Milky Treats')
@@ -27,13 +27,13 @@ export function AddButton({ addRating , toaster }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="default">Add Rating</Button>
+        <Button className='bg-black'>Add Rating</Button>
       </DialogTrigger>
       <DialogContent className="max-w-[500px] bg-black text-white">
         <DialogHeader>
           <DialogTitle>Add Rating</DialogTitle>
           <DialogDescription>
-            Type in a restaurant name and give it a score of:  S, A, B, C, or F
+            Choose:  S, A, B, C, or F
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
@@ -49,17 +49,18 @@ export function AddButton({ addRating , toaster }) {
               id='item'
             />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
+          <div className="grid grid-cols-8 items-center gap-4">
             <Label htmlFor="username" className="text-right">
               Score
             </Label>
-            <Input
+            <RadioButtons />
+            {/* <Input
               className='col-span-3 text-black'
               value={newScore}
               onChange={e => setNewScore(e.target.value)}
               type='text'
-              id='item'
-            />
+              id='item' */}
+            {/* /> */}
           </div>
         </div>
         <DialogFooter>
