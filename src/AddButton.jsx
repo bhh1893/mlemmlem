@@ -22,7 +22,6 @@ export function AddButton({ addRating , toaster }) {
     e.preventDefault()
     addRating(newRestaurant, newScore)
     setOpen(!open)
-    toaster()
   }
 
   return (
