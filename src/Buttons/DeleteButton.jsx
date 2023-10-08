@@ -40,7 +40,7 @@ export function DeleteButton({ parentOpen, setParentOpen, deleteRating, restaura
             Delete
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-[500px] bg-black text-white">
+        <DialogContent className="max-w-[500px] bg-slate-700 text-white">
           <DialogHeader>
             <DialogTitle>Are you sure you want to remove {name}?</DialogTitle>
           </DialogHeader>

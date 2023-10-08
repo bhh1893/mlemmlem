@@ -18,6 +18,10 @@ export function AddButton({ addRating , toaster }) {
   const [newScore, setNewScore] = useState('S')
   const [open, setOpen] = useState(false);
 
+  function updateScore(option) {
+    setNewScore(option)
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
     addRating(newRestaurant, newScore)
@@ -53,7 +57,7 @@ export function AddButton({ addRating , toaster }) {
             <Label htmlFor="username" className="text-right">
               Score
             </Label>
-            <RadioButtons />
+            <RadioButtons updateScore={updateScore}/>
             {/* <Input
               className='col-span-3 text-black'
               value={newScore}

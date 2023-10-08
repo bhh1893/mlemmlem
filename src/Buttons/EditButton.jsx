@@ -33,7 +33,7 @@ export function EditButton({ parentOpen, setParentOpen, restaurant }) {
           Edit
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[500px] bg-black text-white">
+      <DialogContent className="max-w-[500px] bg-slate-800 text-white">
         <DialogHeader>
           <DialogTitle>Edit Restaurant</DialogTitle>
           <DialogDescription>
