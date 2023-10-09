@@ -44,11 +44,6 @@ export function DeleteButton({ r, cardOpen, setCardOpen, deleteRating }) {
           <DialogHeader>
             <DialogTitle>Are you sure you want to remove {title}?</DialogTitle>
           </DialogHeader>
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-4 items-center gap-4">
-              {title}
-            </div>
-          </div>
           <DialogFooter>
             <Button onClick={handleDelete}> Yes </Button>
             <Button onClick={backOne}> No </Button>

@@ -30,16 +30,11 @@ export function Card({ r, addRating, deleteRating }) {
       </DialogTrigger>
       <DialogContent className="max-w-[500px] bg-black text-white">
         <DialogHeader>
-          <DialogTitle>View Details</DialogTitle>
+          <DialogTitle>{title}</DialogTitle>
           <DialogDescription>
-            View/Edit Restaurant
+            View/Edit Restaurant Details
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            {title}
-          </div>
-        </div>
         <DialogFooter>
           <EditButton
             r={r}

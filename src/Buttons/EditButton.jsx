@@ -48,7 +48,7 @@ export function EditButton({ r, cardOpen, setCardOpen, addRating, deleteRating }
         <DialogHeader>
           <DialogTitle>Edit Restaurant</DialogTitle>
           <DialogDescription>
-            Update rating or add another food item.
+            Update rating or (TODO: add another food item).
           </DialogDescription>
           <RadioButtons 
             updateScore={updateScore}
