@@ -20,9 +20,7 @@ const RadioGroupItem = React.forwardRef(({ className, children, curlevel, ...pro
       )}
       {...props}>
       <RadioGroupPrimitive.Indicator 
-        // className="relative flex h-max w-max bg-slate-200 text-black"
-        className="absolute bg-white inset-0 flex justify-center items-center z-20
-                   border-2 border-red-500"
+        className="relative inset-0 bg-slate-200 flex justify-center items-center z-20"
       >
         {curlevel}
       </RadioGroupPrimitive.Indicator>

@@ -18,7 +18,6 @@ export function EditButton({ r, cardOpen, setCardOpen, addRating, deleteRating }
   const { toast } = useToast()
 
   function updateScore(option) {
-    console.log(option)
     setNewScore(option)
   }
 

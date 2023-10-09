@@ -52,21 +52,16 @@ export function AddButton({ addRating }) {
               id='item'
             />
           </div>
-          <div className="grid grid-cols-8 items-center gap-4">
+          <div className="grid grid-cols-6 items-center gap-4">
             <div className='text-sm font-medium leading-none text-right'>
-                Score
+              Score
             </div>
-            <RadioButtons 
-              updateScore={updateScore}
-              start={'S'}
-            />
-            {/* <Input
-              className='col-span-3 text-black'
-              value={newScore}
-              onChange={e => setNewScore(e.target.value)}
-              type='text'
-              id='item' */}
-            {/* /> */}
+            <div className='col-span-5'>
+              <RadioButtons
+                updateScore={updateScore}
+                start={'S'}
+              />
+            </div>
           </div>
         </div>
         <DialogFooter>

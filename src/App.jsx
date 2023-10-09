@@ -34,11 +34,11 @@ function App() {
           })
           board['A'].push({
             'title': rname1,
-            'score': 'S'
+            'score': 'A'
           })
           board['B'].push({
             'title': rname2,
-            'score': 'S'
+            'score': 'B'
           })
           return board
         })
