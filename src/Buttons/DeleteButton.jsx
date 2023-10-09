@@ -9,22 +9,22 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 
 
-export function DeleteButton({ parentOpen, setParentOpen, deleteRating, restaurant }) {
-  const [open, setOpen] = useState(false);
+export function DeleteButton({ r, cardOpen, setCardOpen, deleteRating }) {
+  const [delOpen, setDelOpen] = useState(false);
   const { toast } = useToast()
+  const title = r['title']
 
   function backOne() {
-    setOpen(!open)
+    setDelOpen(!delOpen)
   }
 
   function handleDelete() {
-    const errMessage = "" + restaurant + " has been deleted."
-    deleteRating(restaurant)
-    setParentOpen(!parentOpen)
+    const errMessage = "" + title + " has been deleted."
+    deleteRating(title)
+    setCardOpen(!cardOpen)
     toast({
       title: 'Rating Deleted.',
       description: errMessage,
@@ -34,7 +34,7 @@ export function DeleteButton({ parentOpen, setParentOpen, deleteRating, restaura
 
   return (
     <>
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog open={delOpen} onOpenChange={setDelOpen}>
         <DialogTrigger asChild>
           <Button>
             Delete
@@ -42,13 +42,11 @@ export function DeleteButton({ parentOpen, setParentOpen, deleteRating, restaura
         </DialogTrigger>
         <DialogContent className="max-w-[500px] bg-slate-700 text-white">
           <DialogHeader>
-            <DialogTitle>Are you sure you want to remove {name}?</DialogTitle>
+            <DialogTitle>Are you sure you want to remove {title}?</DialogTitle>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label htmlFor="name" className="text-right">
-                {name}
-              </Label>
+              {title}
             </div>
           </div>
           <DialogFooter>

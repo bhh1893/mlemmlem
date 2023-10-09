@@ -10,7 +10,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { RadioButtons } from './RadioButtons'
 
 export function AddButton({ addRating }) {
@@ -42,9 +41,9 @@ export function AddButton({ addRating }) {
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
+            <div className='text-sm font-medium leading-none text-right'>
               Restaurant
-            </Label>
+            </div>
             <Input
               className='col-span-3 text-black'
               value={newRestaurant}
@@ -54,10 +53,13 @@ export function AddButton({ addRating }) {
             />
           </div>
           <div className="grid grid-cols-8 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Score
-            </Label>
-            <RadioButtons updateScore={updateScore}/>
+            <div className='text-sm font-medium leading-none text-right'>
+                Score
+            </div>
+            <RadioButtons 
+              updateScore={updateScore}
+              start={'S'}
+            />
             {/* <Input
               className='col-span-3 text-black'
               value={newScore}

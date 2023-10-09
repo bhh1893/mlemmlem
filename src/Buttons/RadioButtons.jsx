@@ -1,12 +1,12 @@
-import { Label } from "@/components/ui/label"
 import { useEffect } from 'react'
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { getLevel, tierListSize, getColor } from '../constants/getLevel'
 
-export function RadioButtons({ updateScore }) {
-  const startValue = 'option0'
+export function RadioButtons({ updateScore, start }) {
+  const numLevel = getLevel(start)
+  const startValue = `option${numLevel}`
   useEffect(() => {
-    updateScore('S')
+    updateScore(start)
   }, []);
 
 

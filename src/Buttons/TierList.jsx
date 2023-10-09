@@ -1,7 +1,7 @@
 import { Card } from './Card';
-import { getLevel, tierListSize, getColor } from './constants/getLevel'
+import { getLevel, tierListSize, getColor } from '../constants/getLevel'
 
-export function TierList({ restaurants, deleteRating }) {
+export function TierList({ restaurants, addRating, deleteRating }) {
   function handleScroll(e) {
     // here im handling the horizontal scroll inline, without the use of hooks
     const strength = Math.abs(e.deltaY);
@@ -49,7 +49,7 @@ export function TierList({ restaurants, deleteRating }) {
               {restaurants[curLevel].map(r => {
                 let title = r['title']
                 return (
-                  <Card title={title} deleteRating={deleteRating} key={title}/>
+                  <Card r={r} addRating={addRating} deleteRating={deleteRating} key={title}/>
                 );
               })}
             </div>

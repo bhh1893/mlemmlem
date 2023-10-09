@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { TierList } from './TierList'
+import { TierList } from './Buttons/TierList'
 import { AddButton } from './Buttons/AddButton'
-import { getLevel, tierListSize } from './constants/getLevel'
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import { Button } from './components/ui/button'
@@ -20,35 +19,25 @@ function App() {
   const [clicked, setClicked] = useState(0)
   const [restaurantSet, setRestaurantSet] = useState(new Set())
 
-  function addDummyShort(e) {
-    e.preventDefault()
-    if (clicked === 0) {
-      setRestaurants(prev => {
-        const board = prev
-        board['S'].push({
-          'title': 'Five Guys',
-          'score': 'S'
-        })
-        return board
-      })
-      setRestaurantSet(prev => {
-        const rset = prev
-        rset.add('Five Guys')
-        return rset
-      })
-      setClicked(1)
-    }
-  }
-
   function addDummy(e) {
     e.preventDefault()
     if (clicked === 0) {
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 3; i++) {
         const rname = `Restaurant-${i}`
+        const rname1 = `Restaurant-${i+3}`
+        const rname2 = `Restaurant-${i+6}`
         setRestaurants(prev => {
           const board = prev
           board['S'].push({
             'title': rname,
+            'score': 'S'
+          })
+          board['A'].push({
+            'title': rname1,
+            'score': 'S'
+          })
+          board['B'].push({
+            'title': rname2,
             'score': 'S'
           })
           return board
@@ -123,10 +112,9 @@ function App() {
           <div className='text-center p-5'>
             <AddButton addRating={addRating} />
             <Button onClick={addDummy}> Add Dummy Data </Button>
-            <Button onClick={addDummyShort}> Add Dummy Short </Button>
           </div>
         </form>
-        <TierList restaurants={restaurants} deleteRating={deleteRating} />
+        <TierList restaurants={restaurants} addRating={addRating} deleteRating={deleteRating} />
       </div>
     </>
   )

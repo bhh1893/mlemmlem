@@ -9,15 +9,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
-import { DeleteButton } from './Buttons/DeleteButton'
-import { EditButton } from './Buttons/EditButton'
+import { DeleteButton } from './DeleteButton'
+import { EditButton } from './EditButton'
 
-export function Card({ title, deleteRating }) {
-  const [open, setOpen] = useState(false);
+export function Card({ r, addRating, deleteRating }) {
+  const [cardOpen, setCardOpen] = useState(false);
+  const title = r['title']
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={cardOpen} onOpenChange={setCardOpen}>
       <DialogTrigger asChild>
         <Button 
           variant='default'
@@ -37,22 +37,22 @@ export function Card({ title, deleteRating }) {
         </DialogHeader>
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              {title}
-            </Label>
+            {title}
           </div>
         </div>
         <DialogFooter>
           <EditButton
-            parentOpen={open} 
-            setParentOpen={setOpen} 
-            restaurant={title}
+            r={r}
+            cardOpen={cardOpen} 
+            setCardOpen={setCardOpen} 
+            addRating={addRating}
+            deleteRating={deleteRating}
           />
           <DeleteButton 
-            parentOpen={open} 
-            setParentOpen={setOpen} 
+            r={r}
+            cardOpen={cardOpen} 
+            setCardOpen={setCardOpen} 
             deleteRating={deleteRating}
-            restaurant={title}
           />
         </DialogFooter>
       </DialogContent>

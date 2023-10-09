@@ -9,21 +9,33 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label"
+import { RadioButtons } from './RadioButtons';
+import { useToast } from "@/components/ui/use-toast"
 
-export function EditButton({ parentOpen, setParentOpen, restaurant }) {
+export function EditButton({ r, cardOpen, setCardOpen, addRating, deleteRating }) {
   const [open, setOpen] = useState(false);
+  const [newScore, setNewScore] = useState('S')
+  const { toast } = useToast()
+
+  function updateScore(option) {
+    console.log(option)
+    setNewScore(option)
+  }
 
   function backOne() {
     setOpen(!open)
   }
 
-  function handleDelete() {
-    console.log('implement edit')
-    const editMessage = "Updated " + restaurant + "!"
-    //TODO: Update to new toast
-    //notifyUpdate(editMessage)
-    setParentOpen(!parentOpen)
+  function handleEdit() {
+    const editMessage = "Updated " + r['title'] + "!"
+    deleteRating(r['title'])
+    addRating(r['title'], newScore)
+    toast({
+      title: 'Rating Updated.',
+      description: editMessage,
+      className: 'bg-black text-white'
+    })
+    setCardOpen(!cardOpen)
   }
 
   return (
@@ -39,19 +51,13 @@ export function EditButton({ parentOpen, setParentOpen, restaurant }) {
           <DialogDescription>
             Update rating or add another food item.
           </DialogDescription>
-          <DialogDescription>
-            Foods:
-          </DialogDescription>
+          <RadioButtons 
+            updateScore={updateScore}
+            start={r['score']}
+          />
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              {name}
-            </Label>
-          </div>
-        </div>
         <DialogFooter>
-          <Button onClick={handleDelete}> Update </Button>
+          <Button onClick={handleEdit}> Update </Button>
           <Button onClick={backOne}> Cancel </Button>
         </DialogFooter>
       </DialogContent>
