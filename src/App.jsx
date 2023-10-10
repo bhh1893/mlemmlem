@@ -77,7 +77,7 @@ function App() {
       })
       toast({
         title: 'Rating added!',
-        description: `Milky treats is ${score} tier.`,
+        description: `${rname} is ${score} tier.`,
         className: 'bg-black text-white'
       })
       setRestaurantSet(prev => {
